@@ -14,7 +14,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace CISESPORT
 {
-    
+
     public partial class FormAllPlayer : Form
     {
         List<Player> listPlayer = new List<Player>();
@@ -184,16 +184,7 @@ namespace CISESPORT
         private void LoadDataFromFile()
         {
         }
-        private void SaveDataToFile()
-        {
-            using (var writer = new StreamWriter("students.txt"))
-            {
-                foreach (var player in listPlayer)
-                {
-                    writer.WriteLine($"{player.Name},{player.Lastname},{player.Major},{player.Age}");
-                }
-            }
-        }
+
 
 
 
@@ -213,7 +204,8 @@ namespace CISESPORT
 
         private void existToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SaveDataToFile();
+            SaveData();
+            Close();
         }
 
         private void button3_Click(object sender, EventArgs e)

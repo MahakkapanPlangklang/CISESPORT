@@ -28,7 +28,6 @@ namespace CISESPORT
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
             tbName = new TextBox();
             label1 = new Label();
             textBox1 = new TextBox();
@@ -52,9 +51,12 @@ namespace CISESPORT
             button3 = new Button();
             button4 = new Button();
             button5 = new Button();
-            errorProvider1 = new ErrorProvider(components);
+            dataGridView2 = new DataGridView();
+            Column1 = new DataGridViewTextBoxColumn();
+            Column2 = new DataGridViewTextBoxColumn();
+            Column3 = new DataGridViewTextBoxColumn();
             button6 = new Button();
-            ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             SuspendLayout();
             // 
             // tbName
@@ -273,17 +275,45 @@ namespace CISESPORT
             button5.UseVisualStyleBackColor = true;
             button5.Click += button5_Click;
             // 
-            // errorProvider1
+            // dataGridView2
             // 
-            errorProvider1.ContainerControl = this;
+            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView2.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3 });
+            dataGridView2.Location = new Point(489, 39);
+            dataGridView2.Name = "dataGridView2";
+            dataGridView2.RowHeadersWidth = 51;
+            dataGridView2.RowTemplate.Height = 29;
+            dataGridView2.Size = new Size(413, 396);
+            dataGridView2.TabIndex = 24;
+            // 
+            // Column1
+            // 
+            Column1.HeaderText = "Team";
+            Column1.MinimumWidth = 6;
+            Column1.Name = "Column1";
+            Column1.Width = 125;
+            // 
+            // Column2
+            // 
+            Column2.HeaderText = "Name";
+            Column2.MinimumWidth = 6;
+            Column2.Name = "Column2";
+            Column2.Width = 125;
+            // 
+            // Column3
+            // 
+            Column3.HeaderText = "Lastname";
+            Column3.MinimumWidth = 6;
+            Column3.Name = "Column3";
+            Column3.Width = 125;
             // 
             // button6
             // 
-            button6.Location = new Point(701, 116);
+            button6.Location = new Point(192, 327);
             button6.Name = "button6";
             button6.Size = new Size(94, 29);
-            button6.TabIndex = 24;
-            button6.Text = "button6";
+            button6.TabIndex = 25;
+            button6.Text = "ยืนยัน";
             button6.UseVisualStyleBackColor = true;
             button6.Click += button6_Click;
             // 
@@ -291,8 +321,9 @@ namespace CISESPORT
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(914, 600);
+            ClientSize = new Size(914, 448);
             Controls.Add(button6);
+            Controls.Add(dataGridView2);
             Controls.Add(button5);
             Controls.Add(button4);
             Controls.Add(button3);
@@ -319,7 +350,7 @@ namespace CISESPORT
             Margin = new Padding(3, 4, 3, 4);
             Name = "FormTeamInfo";
             Text = "FormTeamInfo";
-            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -349,7 +380,10 @@ namespace CISESPORT
         private Button button3;
         private Button button4;
         private Button button5;
-        private ErrorProvider errorProvider1;
+        private DataGridView dataGridView2;
+        private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn Column2;
+        private DataGridViewTextBoxColumn Column3;
         private Button button6;
     }
 }

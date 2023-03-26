@@ -21,7 +21,8 @@ namespace CISESPORT
 
         FormAllPlayer formInfo = new FormAllPlayer();
         List<Player> listPlayer = new List<Player>();
-
+        List<Team> listteam = new List<Team>();
+             
 
         public FormTeamInfo()
         {
@@ -48,10 +49,7 @@ namespace CISESPORT
 
         }
 
-        private void button6_Click(object sender, EventArgs e)
-        {
 
-        }
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -120,6 +118,47 @@ namespace CISESPORT
                 }
             }
         }
+        private void AddRowToDataGridView(string column1Value, string column2Value, string column3Value)
+        {
+            DataGridViewRow row = new DataGridViewRow();
+            row.CreateCells(dataGridView2);
+
+            row.Cells[0].Value = column1Value;
+            row.Cells[1].Value = column2Value;
+            row.Cells[2].Value = column3Value;
+           // row.Cells[3].Value = column4Value;
+
+            dataGridView2.Rows.Add(row);
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            //DataGridViewRow row = new DataGridViewRow();
+            //row.CreateCells(dataGridView2);
+            //row.Cells[0].Value = tbName.Text;
+            //row.Cells[1].Value = textBox1.Text;
+            //row.Cells[2].Value = textBox6.Text;
+            //row.Cells[1].Value = textBox2.Text;
+            //row.Cells[2].Value =textBox7.Text;
+            //dataGridView2.Rows.Add(row);
+
+            string column1Value = tbName.Text;
+            string column2Value = textBox1.Text;
+            string column3Value = textBox6.Text;
+            //string column4Value = textBox4.Text;
+
+            AddRowToDataGridView(column1Value, column2Value, column3Value);
+
+            // เคลียร์ค่าใน TextBox ทุกช่องหลังจากเพิ่มแถวใหม่เรียบร้อยแล้ว
+            textBox1.Clear();
+            textBox2.Clear();
+            textBox6.Clear();
+            textBox7.Clear();
+            // textBox4.Clear();
+        }
+
     }
+        
+    
 }
 

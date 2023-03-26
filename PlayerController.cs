@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace CISESPORT
 {
-    FormAllPlayer
+    
     public class PlayerController
     {
        

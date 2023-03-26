@@ -1,4 +1,4 @@
-namespace CISESPORT
+﻿namespace CISESPORT
 {
     partial class FormAllPlayer
     {
@@ -48,7 +48,6 @@ namespace CISESPORT
             playerBindingSource = new BindingSource(components);
             playerBindingSource1 = new BindingSource(components);
             button2 = new Button();
-            button5 = new Button();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)playerBindingSource).BeginInit();
@@ -76,21 +75,21 @@ namespace CISESPORT
             // openFileToolStripMenuItem
             // 
             openFileToolStripMenuItem.Name = "openFileToolStripMenuItem";
-            openFileToolStripMenuItem.Size = new Size(155, 26);
+            openFileToolStripMenuItem.Size = new Size(224, 26);
             openFileToolStripMenuItem.Text = "Open File";
             openFileToolStripMenuItem.Click += openFileToolStripMenuItem_Click;
             // 
             // saveFileToolStripMenuItem
             // 
             saveFileToolStripMenuItem.Name = "saveFileToolStripMenuItem";
-            saveFileToolStripMenuItem.Size = new Size(155, 26);
+            saveFileToolStripMenuItem.Size = new Size(224, 26);
             saveFileToolStripMenuItem.Text = "Save File";
             saveFileToolStripMenuItem.Click += saveFileToolStripMenuItem_Click;
             // 
             // existToolStripMenuItem
             // 
             existToolStripMenuItem.Name = "existToolStripMenuItem";
-            existToolStripMenuItem.Size = new Size(155, 26);
+            existToolStripMenuItem.Size = new Size(224, 26);
             existToolStripMenuItem.Text = "Close";
             existToolStripMenuItem.Click += existToolStripMenuItem_Click;
             // 
@@ -196,30 +195,19 @@ namespace CISESPORT
             // 
             // button2
             // 
-            button2.Location = new Point(24, 150);
+            button2.Location = new Point(1180, 109);
             button2.Name = "button2";
             button2.Size = new Size(94, 29);
             button2.TabIndex = 4;
-            button2.Text = "button2";
+            button2.Text = "เลือก";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
-            // 
-            // button5
-            // 
-            button5.Location = new Point(24, 44);
-            button5.Name = "button5";
-            button5.Size = new Size(94, 29);
-            button5.TabIndex = 8;
-            button5.Text = "save";
-            button5.UseVisualStyleBackColor = true;
-            button5.Click += button5_Click;
             // 
             // FormAllPlayer
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1297, 600);
-            Controls.Add(button5);
             Controls.Add(button2);
             Controls.Add(dataGridView1);
             Controls.Add(menuStrip1);
@@ -258,6 +246,5 @@ namespace CISESPORT
         private DataGridViewTextBoxColumn Column3;
         private DataGridViewTextBoxColumn Column5;
         private Button button2;
-        private Button button5;
     }
 }
