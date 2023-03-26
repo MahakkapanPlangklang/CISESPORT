@@ -63,7 +63,7 @@ namespace CISESPORT
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(114, 27);
             this.tbName.TabIndex = 0;
-            this.tbName.TextChanged += new System.EventHandler(this.tbName_TextChanged);
+            
             // 
             // button1
             // 

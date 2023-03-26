@@ -3,6 +3,7 @@ namespace CISESPORT
     public partial class FormInfo : Form
     {
         private Player _newPlayer;
+        
         public FormInfo()
         {
             InitializeComponent();
@@ -24,7 +25,7 @@ namespace CISESPORT
             }
             catch (FormatException ex) { 
                 //Do something if have some exception
-                MessageBox.Show("�س�����������١��ͧ");
+                MessageBox.Show("โปรดป้อนตัวเลข");
                 return;
             }
 
@@ -35,9 +36,6 @@ namespace CISESPORT
         }
         public Player getPlayer() { return _newPlayer; }
 
-        private void tbName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }
