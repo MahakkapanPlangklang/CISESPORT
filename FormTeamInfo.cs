@@ -133,28 +133,53 @@ namespace CISESPORT
 
         private void button6_Click(object sender, EventArgs e)
         {
-            //DataGridViewRow row = new DataGridViewRow();
-            //row.CreateCells(dataGridView2);
-            //row.Cells[0].Value = tbName.Text;
-            //row.Cells[1].Value = textBox1.Text;
-            //row.Cells[2].Value = textBox6.Text;
-            //row.Cells[1].Value = textBox2.Text;
-            //row.Cells[2].Value =textBox7.Text;
-            //dataGridView2.Rows.Add(row);
+            ////DataGridViewRow row = new DataGridViewRow();
+            ////row.CreateCells(dataGridView2);
+            ////row.Cells[0].Value = tbName.Text;
+            ////row.Cells[1].Value = textBox1.Text;
+            ////row.Cells[2].Value = textBox6.Text;
+            ////row.Cells[1].Value = textBox2.Text;
+            ////row.Cells[2].Value =textBox7.Text;
+            ////dataGridView2.Rows.Add(row);
 
-            string column1Value = tbName.Text;
-            string column2Value = textBox1.Text;
-            string column3Value = textBox6.Text;
-            //string column4Value = textBox4.Text;
+            //string column1Value = tbName.Text;
+            //string column2Value = textBox1.Text;
+            //string column3Value = textBox6.Text;
+            ////string column4Value = textBox4.Text;
 
-            AddRowToDataGridView(column1Value, column2Value, column3Value);
+            //AddRowToDataGridView(column1Value, column2Value, column3Value);
 
-            // เคลียร์ค่าใน TextBox ทุกช่องหลังจากเพิ่มแถวใหม่เรียบร้อยแล้ว
+            //// เคลียร์ค่าใน TextBox ทุกช่องหลังจากเพิ่มแถวใหม่เรียบร้อยแล้ว
+            //textBox1.Clear();
+            //textBox2.Clear();
+            //textBox6.Clear();
+            //textBox7.Clear();
+            //// textBox4.Clear();
+            ///
+
+            string[] row = new string[] {tbName.Text ,textBox1.Text, textBox6.Text};
+            dataGridView2.Rows.Add(row);
+            string[] row2 = new string[] { tbName.Text, textBox2.Text, textBox7.Text };
+            dataGridView2.Rows.Add(row2);
+            string[] row3 = new string[] { tbName.Text, textBox3.Text, textBox8.Text };
+            dataGridView2.Rows.Add(row3);
+            string[] row4 = new string[] { tbName.Text, textBox4.Text, textBox9.Text };
+            dataGridView2.Rows.Add(row4);
+            string[] row5 = new string[] { tbName.Text, textBox5.Text, textBox10.Text };
+            dataGridView2.Rows.Add(row5);
+
+            tbName.Clear();
             textBox1.Clear();
             textBox2.Clear();
+            textBox3.Clear();
+            textBox4.Clear();
+            textBox5.Clear();
             textBox6.Clear();
             textBox7.Clear();
-            // textBox4.Clear();
+            textBox8.Clear();
+            textBox9.Clear();
+            textBox10.Clear();
+            
         }
 
     }
