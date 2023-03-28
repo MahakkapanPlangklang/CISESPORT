@@ -350,6 +350,7 @@ namespace CISESPORT
             Margin = new Padding(3, 4, 3, 4);
             Name = "FormTeamInfo";
             Text = "FormTeamInfo";
+            
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             ResumeLayout(false);
             PerformLayout();
