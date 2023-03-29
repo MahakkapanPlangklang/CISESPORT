@@ -18,7 +18,6 @@ namespace CISESPORT
     public partial class FormAllPlayer : Form
     {
         List<Player> listPlayer = new List<Player>();
-        List<Class1> v = new List<Class1>();
         Player selectedPlayer;
         private Stream playerFilePath;
 
@@ -83,28 +82,37 @@ namespace CISESPORT
 
         private void saveFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //Save data from list to CSV file
+            
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "TEXT|*.txt|CSV|*.csv";
             saveFileDialog.ShowDialog();
             if (saveFileDialog.FileName != "")
             {
-                using (StreamWriter writer = new StreamWriter(saveFileDialog.FileName))
+                try
                 {
-                    foreach (Player item in listPlayer)
+                    using (StreamWriter writer = new StreamWriter(saveFileDialog.FileName))
                     {
-                        writer.WriteLine(String.Format("{0},{1},{2},{3},{4},{5},{6},{7}",
-                            item.Name,
-                            item.Lastname,
-                            item.ID,
-                            item.Major,
-                            item.Displayname,
-                            item.Mail,
-                            item.Phone,
-                            item.Age));
+                        foreach (Player item in listPlayer)
+                        {
+                            writer.WriteLine(String.Format("{0},{1},{2},{3},{4},{5},{6},{7}",
+                                item.Name,
+                                item.Lastname,
+                                item.ID,
+                                item.Major,
+                                item.Displayname,
+                                item.Mail,
+                                item.Phone,
+                                item.Age));
+                        }
                     }
+                    MessageBox.Show("Data saved successfully.", "Save Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message, "Save Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+
         }
 
         private void openFileToolStripMenuItem_Click(object sender, EventArgs e)
@@ -115,27 +123,30 @@ namespace CISESPORT
             openFileDialog.ShowDialog();
             if (openFileDialog.FileName != "")
             {
-                List<Player> players = new List<Player>();
-                using (StreamReader reader = new StreamReader(openFileDialog.FileName))
-                {
-                    string line = reader.ReadLine();
-                    while (line != null)
+                    List<Player> players = new List<Player>();
+                    using (StreamReader reader = new StreamReader(openFileDialog.FileName))
                     {
-                        string[] fields = line.Split(',');
-                        string name = fields[0];
-                        string lastname = fields[1];
-                        string studentid = fields[2];
-                        string major = fields[3];
-                        string displayname = fields[4];
-                        string mail = fields[5];
-                        string phone = fields[6];
-                        int age = int.Parse(fields[7]);
-                        Player player = new Player(name, lastname, studentid, major, displayname, mail, phone, age);
-                        players.Add(player);
-                        line = reader.ReadLine();
+                        string line = reader.ReadLine();
+                        while (line != null)
+                        {
+                            string[] fields = line.Split(',');
+                            string name = fields[0];
+                            string lastname = fields[1];
+                            string studentid = fields[2];
+                            string major = fields[3];
+                            string displayname = fields[4];
+                            string mail = fields[5];
+                            string phone = fields[6];
+                            int age = int.Parse(fields[7]);
+                            Player player = new Player(name, lastname, studentid, major, displayname, mail, phone, age);
+                            players.Add(player);
+                            line = reader.ReadLine();
+                        }
+                        this.dataGridView1.DataSource = players;
+                        
                     }
-                }
-                this.dataGridView1.DataSource = players;
+                   
+
             }
 
 
@@ -173,20 +184,13 @@ namespace CISESPORT
         }
 
         private void FormAllPlayer_Load(object sender, EventArgs e)
-        {
-            LoadData();
+        { 
+           LoadData();
         }
         private void FormAllPlayer_FormClosing(object sender, FormClosingEventArgs e)
         {
-            SaveData();
+           SaveData();
         }
-
-        private void LoadDataFromFile()
-        {
-        }
-
-
-
 
         private void button1_Click_1(object sender, EventArgs e)
         {
@@ -235,11 +239,7 @@ namespace CISESPORT
             }
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-
-
-        }
+  
         private void SaveData()
         {
             string path = "data.txt";
@@ -277,7 +277,19 @@ namespace CISESPORT
 
         private void button1_Click_2(object sender, EventArgs e)
         {
-            
+            // ตรวจสอบว่ามี Cell ที่ถูกเลือกใน DataGridView หรือไม่
+            if (dataGridView1.SelectedCells.Count > 0)
+            {
+                // แสดง MessageBox เพื่อยืนยันการลบข้อมูล
+                DialogResult result = MessageBox.Show("Are you sure you want to delete this cell?", "Confirmation", MessageBoxButtons.YesNo);
+
+                // ถ้าตกลงลบข้อมูล
+                if (result == DialogResult.Yes)
+                {
+                    // ลบ Cell ที่เลือกออกจาก DataGridView
+                    dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells[dataGridView1.SelectedCells[0].ColumnIndex].Value = null;
+                }
+            }
         }
     }
 }

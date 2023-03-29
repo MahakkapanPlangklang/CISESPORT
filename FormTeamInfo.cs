@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 using static System.Windows.Forms.DataFormats;
+using System.Runtime.Serialization.Formatters.Binary;
+
 
 namespace CISESPORT
 {
@@ -169,9 +171,90 @@ namespace CISESPORT
 
         }
 
-        
+        private void saveFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Text File (*.txt)|*.txt";
+            saveFileDialog.Title = "Save Data";
+            saveFileDialog.FileName = "data.txt";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    StreamWriter streamWriter = new StreamWriter(saveFileDialog.FileName);
+
+                    // เขียนข้อมูลใน DataGridView เป็นบรรทัดของไฟล์
+                    foreach (DataGridViewRow row in dataGridView2.Rows)
+                    {
+                        if (!row.IsNewRow)
+                        {
+                            string line = "";
+                            foreach (DataGridViewCell cell in row.Cells)
+                            {
+                                line += cell.Value + "\t";
+                            }
+                            streamWriter.WriteLine(line.Trim());
+                        }
+                    }
+
+                    streamWriter.Close();
+
+                    MessageBox.Show("Data saved successfully.", "Save Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message, "Save Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void openFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Text File (*.txt)|*.txt";
+            openFileDialog.Title = "Open Data";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    StreamReader streamReader = new StreamReader(openFileDialog.FileName);
+
+                    // ลบข้อมูลเดิมใน DataGridView
+                    dataGridView2.Rows.Clear();
+
+                    // อ่านข้อมูลจากไฟล์และเพิ่มลงใน DataGridView
+                    string line;
+                    while ((line = streamReader.ReadLine()) != null)
+                    {
+                        string[] fields = line.Split('\t');
+                        dataGridView2.Rows.Add(fields[0], fields[1], fields[2]);
+                    }
+
+                    streamReader.Close();
+
+                    MessageBox.Show("Data opened successfully.", "Open Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message, "Open Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void FormTeamInfo_Load(object sender, EventArgs e)
+        {
+            dataGridView2.Columns.Add("Team", "Team");
+            dataGridView2.Columns.Add("Name", "Name");
+            dataGridView2.Columns.Add("LastNaame", "LastName");
+        }
     }
 
-
 }
+
+
+
+
 

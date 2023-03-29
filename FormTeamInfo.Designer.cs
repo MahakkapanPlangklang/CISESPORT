@@ -52,11 +52,17 @@ namespace CISESPORT
             button4 = new Button();
             button5 = new Button();
             dataGridView2 = new DataGridView();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
+            Team = new DataGridViewTextBoxColumn();
+            Name = new DataGridViewTextBoxColumn();
+            LastName = new DataGridViewTextBoxColumn();
             button6 = new Button();
+            menuStrip1 = new MenuStrip();
+            fileToolStripMenuItem = new ToolStripMenuItem();
+            saveFileToolStripMenuItem = new ToolStripMenuItem();
+            openFileToolStripMenuItem = new ToolStripMenuItem();
+            saveAndCloseToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // tbName
@@ -278,7 +284,7 @@ namespace CISESPORT
             // dataGridView2
             // 
             dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3 });
+            dataGridView2.Columns.AddRange(new DataGridViewColumn[] { Team, Name, LastName });
             dataGridView2.Location = new Point(489, 39);
             dataGridView2.Name = "dataGridView2";
             dataGridView2.RowHeadersWidth = 51;
@@ -286,26 +292,29 @@ namespace CISESPORT
             dataGridView2.Size = new Size(413, 396);
             dataGridView2.TabIndex = 24;
             // 
-            // Column1
+            // Team
             // 
-            Column1.HeaderText = "Team";
-            Column1.MinimumWidth = 6;
-            Column1.Name = "Column1";
-            Column1.Width = 125;
+            Team.DataPropertyName = "Teams";
+            Team.HeaderText = "Team";
+            Team.MinimumWidth = 6;
+            Team.Name = "Team";
+            Team.Width = 125;
             // 
-            // Column2
+            // Name
             // 
-            Column2.HeaderText = "Name";
-            Column2.MinimumWidth = 6;
-            Column2.Name = "Column2";
-            Column2.Width = 125;
+            Name.DataPropertyName = "Name2";
+            Name.HeaderText = "Name";
+            Name.MinimumWidth = 6;
+            Name.Name = "Name";
+            Name.Width = 125;
             // 
-            // Column3
+            // LastName
             // 
-            Column3.HeaderText = "Lastname";
-            Column3.MinimumWidth = 6;
-            Column3.Name = "Column3";
-            Column3.Width = 125;
+            LastName.DataPropertyName = "LastName2";
+            LastName.HeaderText = "Lastname";
+            LastName.MinimumWidth = 6;
+            LastName.Name = "LastName";
+            LastName.Width = 125;
             // 
             // button6
             // 
@@ -316,6 +325,43 @@ namespace CISESPORT
             button6.Text = "ยืนยัน";
             button6.UseVisualStyleBackColor = true;
             button6.Click += button6_Click;
+            // 
+            // menuStrip1
+            // 
+            menuStrip1.ImageScalingSize = new Size(20, 20);
+            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(914, 28);
+            menuStrip1.TabIndex = 26;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { saveFileToolStripMenuItem, openFileToolStripMenuItem, saveAndCloseToolStripMenuItem });
+            fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            fileToolStripMenuItem.Size = new Size(46, 24);
+            fileToolStripMenuItem.Text = "File";
+            // 
+            // saveFileToolStripMenuItem
+            // 
+            saveFileToolStripMenuItem.Name = "saveFileToolStripMenuItem";
+            saveFileToolStripMenuItem.Size = new Size(192, 26);
+            saveFileToolStripMenuItem.Text = "Save File";
+            saveFileToolStripMenuItem.Click += saveFileToolStripMenuItem_Click;
+            // 
+            // openFileToolStripMenuItem
+            // 
+            openFileToolStripMenuItem.Name = "openFileToolStripMenuItem";
+            openFileToolStripMenuItem.Size = new Size(192, 26);
+            openFileToolStripMenuItem.Text = "Open File";
+            openFileToolStripMenuItem.Click += openFileToolStripMenuItem_Click;
+            // 
+            // saveAndCloseToolStripMenuItem
+            // 
+            saveAndCloseToolStripMenuItem.Name = "saveAndCloseToolStripMenuItem";
+            saveAndCloseToolStripMenuItem.Size = new Size(192, 26);
+            saveAndCloseToolStripMenuItem.Text = "Save and Close";
             // 
             // FormTeamInfo
             // 
@@ -347,11 +393,15 @@ namespace CISESPORT
             Controls.Add(label2);
             Controls.Add(tbName);
             Controls.Add(label1);
+            Controls.Add(menuStrip1);
+            MainMenuStrip = menuStrip1;
             Margin = new Padding(3, 4, 3, 4);
-            Name = "FormTeamInfo";
-            Text = "FormTeamInfo";
             
+            Text = "FormTeamInfo";
+            Load += FormTeamInfo_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -382,9 +432,14 @@ namespace CISESPORT
         private Button button4;
         private Button button5;
         private DataGridView dataGridView2;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column2;
-        private DataGridViewTextBoxColumn Column3;
         private Button button6;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem fileToolStripMenuItem;
+        private ToolStripMenuItem saveFileToolStripMenuItem;
+        private ToolStripMenuItem openFileToolStripMenuItem;
+        private ToolStripMenuItem saveAndCloseToolStripMenuItem;
+        private DataGridViewTextBoxColumn Team;
+        private DataGridViewTextBoxColumn Name;
+        private DataGridViewTextBoxColumn LastName;
     }
 }
