@@ -48,7 +48,6 @@
             playerBindingSource = new BindingSource(components);
             playerBindingSource1 = new BindingSource(components);
             button2 = new Button();
-            button1 = new Button();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)playerBindingSource).BeginInit();
@@ -76,22 +75,22 @@
             // openFileToolStripMenuItem
             // 
             openFileToolStripMenuItem.Name = "openFileToolStripMenuItem";
-            openFileToolStripMenuItem.Size = new Size(155, 26);
+            openFileToolStripMenuItem.Size = new Size(224, 26);
             openFileToolStripMenuItem.Text = "Open File";
             openFileToolStripMenuItem.Click += openFileToolStripMenuItem_Click;
             // 
             // saveFileToolStripMenuItem
             // 
             saveFileToolStripMenuItem.Name = "saveFileToolStripMenuItem";
-            saveFileToolStripMenuItem.Size = new Size(155, 26);
+            saveFileToolStripMenuItem.Size = new Size(224, 26);
             saveFileToolStripMenuItem.Text = "Save File";
             saveFileToolStripMenuItem.Click += saveFileToolStripMenuItem_Click;
             // 
             // existToolStripMenuItem
             // 
             existToolStripMenuItem.Name = "existToolStripMenuItem";
-            existToolStripMenuItem.Size = new Size(155, 26);
-            existToolStripMenuItem.Text = "Close";
+            existToolStripMenuItem.Size = new Size(224, 26);
+            existToolStripMenuItem.Text = "Save and Close";
             existToolStripMenuItem.Click += existToolStripMenuItem_Click;
             // 
             // playerToolStripMenuItem
@@ -198,28 +197,17 @@
             // 
             button2.Location = new Point(1180, 109);
             button2.Name = "button2";
-            button2.Size = new Size(94, 29);
+            button2.Size = new Size(94, 79);
             button2.TabIndex = 4;
             button2.Text = "เลือก";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(28, 61);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 5;
-            button1.Text = "ลบ";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click_2;
             // 
             // FormAllPlayer
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1297, 600);
-            Controls.Add(button1);
             Controls.Add(button2);
             Controls.Add(dataGridView1);
             Controls.Add(menuStrip1);
@@ -227,6 +215,7 @@
             Margin = new Padding(3, 4, 3, 4);
             Name = "FormAllPlayer";
             Text = "FormAllPlayer";
+            FormClosing += FormAllPlayer_FormClosing_1;
             Load += FormAllPlayer_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
@@ -258,6 +247,5 @@
         private DataGridViewTextBoxColumn Column3;
         private DataGridViewTextBoxColumn Column5;
         private Button button2;
-        private Button button1;
     }
 }

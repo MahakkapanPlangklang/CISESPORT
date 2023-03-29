@@ -37,6 +37,7 @@ namespace CISESPORT
 
             using (FormAllPlayer fap = new FormAllPlayer())
             {
+                fap.Owner = this;
                 fap.ShowDialog();
 
                 if (!string.IsNullOrEmpty(fap.Name))
@@ -57,6 +58,7 @@ namespace CISESPORT
         {
             using (FormAllPlayer fap = new FormAllPlayer())
             {
+                fap.Owner = this;
                 fap.ShowDialog();
 
                 if (!string.IsNullOrEmpty(fap.Name))
@@ -74,6 +76,7 @@ namespace CISESPORT
         {
             using (FormAllPlayer fap = new FormAllPlayer())
             {
+                fap.Owner = this;
                 fap.ShowDialog();
 
                 if (!string.IsNullOrEmpty(fap.Name))
@@ -91,6 +94,7 @@ namespace CISESPORT
         {
             using (FormAllPlayer fap = new FormAllPlayer())
             {
+                fap.Owner = this;
                 fap.ShowDialog();
 
                 if (!string.IsNullOrEmpty(fap.Name))
@@ -108,6 +112,7 @@ namespace CISESPORT
         {
             using (FormAllPlayer fap = new FormAllPlayer())
             {
+                fap.Owner = this;
                 fap.ShowDialog();
 
                 if (!string.IsNullOrEmpty(fap.Name))
@@ -173,11 +178,11 @@ namespace CISESPORT
 
         private void saveFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "Text File (*.txt)|*.txt";
             saveFileDialog.Title = "Save Data";
-            saveFileDialog.FileName = "data.txt";
+            saveFileDialog.FileName = "AllTeam.txt";
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
@@ -244,14 +249,46 @@ namespace CISESPORT
             }
         }
 
-        private void FormTeamInfo_Load(object sender, EventArgs e)
+        private void saveAndCloseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            dataGridView2.Columns.Add("Team", "Team");
-            dataGridView2.Columns.Add("Name", "Name");
-            dataGridView2.Columns.Add("LastNaame", "LastName");
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Text File (*.txt)|*.txt";
+            saveFileDialog.Title = "Save Data";
+            saveFileDialog.FileName = "AllTeam.txt";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    StreamWriter streamWriter = new StreamWriter(saveFileDialog.FileName);
+
+                    // เขียนข้อมูลใน DataGridView เป็นบรรทัดของไฟล์
+                    foreach (DataGridViewRow row in dataGridView2.Rows)
+                    {
+                        if (!row.IsNewRow)
+                        {
+                            string line = "";
+                            foreach (DataGridViewCell cell in row.Cells)
+                            {
+                                line += cell.Value + "\t";
+                            }
+                            streamWriter.WriteLine(line.Trim());
+                        }
+                    }
+
+                    streamWriter.Close();
+
+                    MessageBox.Show("Data saved successfully.", "Save Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message, "Save Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+           
+            Close();
         }
     }
-
 }
 
 

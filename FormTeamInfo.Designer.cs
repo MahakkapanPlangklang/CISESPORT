@@ -346,22 +346,23 @@ namespace CISESPORT
             // saveFileToolStripMenuItem
             // 
             saveFileToolStripMenuItem.Name = "saveFileToolStripMenuItem";
-            saveFileToolStripMenuItem.Size = new Size(192, 26);
+            saveFileToolStripMenuItem.Size = new Size(224, 26);
             saveFileToolStripMenuItem.Text = "Save File";
             saveFileToolStripMenuItem.Click += saveFileToolStripMenuItem_Click;
             // 
             // openFileToolStripMenuItem
             // 
             openFileToolStripMenuItem.Name = "openFileToolStripMenuItem";
-            openFileToolStripMenuItem.Size = new Size(192, 26);
+            openFileToolStripMenuItem.Size = new Size(224, 26);
             openFileToolStripMenuItem.Text = "Open File";
             openFileToolStripMenuItem.Click += openFileToolStripMenuItem_Click;
             // 
             // saveAndCloseToolStripMenuItem
             // 
             saveAndCloseToolStripMenuItem.Name = "saveAndCloseToolStripMenuItem";
-            saveAndCloseToolStripMenuItem.Size = new Size(192, 26);
+            saveAndCloseToolStripMenuItem.Size = new Size(224, 26);
             saveAndCloseToolStripMenuItem.Text = "Save and Close";
+            saveAndCloseToolStripMenuItem.Click += saveAndCloseToolStripMenuItem_Click;
             // 
             // FormTeamInfo
             // 
@@ -398,7 +399,6 @@ namespace CISESPORT
             Margin = new Padding(3, 4, 3, 4);
             
             Text = "FormTeamInfo";
-            Load += FormTeamInfo_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();

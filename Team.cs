@@ -13,20 +13,11 @@ namespace CISESPORT
         Player player;
         List<Player> players = new List<Player>();
         private int ageSum = 0;
-        private string team;
         private string name;
         private string lastname;
         
 
-        //public Team(string team, string name ,string lastname)
-        //{
-        //    this.team = team;
-        //    this.name = name;
-        //    this.lastname = lastname;
-
-
-
-        //}
+        
 
         public void addperson2Class(Player p)
         {
@@ -37,9 +28,7 @@ namespace CISESPORT
            
         }
 
-        //public string Teams { get => team; }
-        //public string Name2 { get => name; }
-        //public string LastName2 { get => lastname; }
+        
 
 
     }
